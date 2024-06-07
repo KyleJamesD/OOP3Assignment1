@@ -11,14 +11,44 @@ import java.util.Comparator;
  * @author kyled
  * @param <E>
  */
-public abstract class Shape<E extends Comparable> implements Comparator<E>{
+    public abstract class Shape implements Comparable<Shape>
+    {
     
-      double height;
-      public abstract void calcVolume();
-      public abstract void calcBaseArea();
+      Double height;
+      public abstract Double calcVolume();
+      public abstract Double calcBaseArea();
+
+    public Double getHeight() {
+        return height;
+    }
     
     
     
+        @Override
+        public int compareTo(Shape s) 
+        {
+        return this.height.compareTo(s.height);
+        }   
+        
+      
+     
+        
+        /*
+        public int compareArea(Shape s1, Shape s2)
+        {
+            int areaComparison = Double.compare(s1.calcBaseArea(), s2.calcBaseArea());
+            return areaComparison;
+        }
+        
+        
+        public int compareVolume(Shape s1, Shape s2)
+        {
+            int areaComparison = Double.compare(s1.calcVolume(), s2.calcVolume());
+            return areaComparison;
+        }
+        */
+
+
     
 //end class  
 }

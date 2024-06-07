@@ -1,33 +1,43 @@
 package shapes;
 
-public class TriangularPrism
+public class TriangularPrism extends Shape
 {
-    double height;
-    double side;
-    double area;
-    double volume;
+    Double height;
+    Double side;
+    Double area;
+    Double volume;
 
     
     
-    public TriangularPrism(double height, double side) {
+    public TriangularPrism(Double height, Double side) {
         this.height = height;
         this.side = side;
-        this.area = calcBaseArea();
-        this.volume = calcVolume();
     }
-    
-    
-    
-    
-    
-    private double calcBaseArea(){
-        double area = (side * side * (Math.sqrt(3)))/4.0;
+
+    public Double getHeight() {
+        return height;
+    }
+
+    public Double getArea() {
         return area;
     }
-    
-    private double calcVolume(){
-        double volume = this.area * height;
+
+    public Double getVolume() {
         return volume;
+    }
+    
+    
+    
+    
+    
+    public Double calcBaseArea(){
+        double area1 = (side * side * (Math.sqrt(3)))/4.0;
+        return area1;
+    }
+    
+    public Double calcVolume(){
+        double volume1 = this.area * height;
+        return volume1;
     
     }
     

@@ -7,12 +7,12 @@ package shapes;
  *
  * @author kyled
  */
-public abstract class Prism {
+public abstract class Prism extends Shape{
     
-    double height;
-    double side;
-    public abstract void calcVolume();
-    public abstract void calcBaseArea();
+    Double height;
+    Double side;
+    public abstract Double calcVolume();
+    public abstract Double calcBaseArea();
     
     
   //end class  
