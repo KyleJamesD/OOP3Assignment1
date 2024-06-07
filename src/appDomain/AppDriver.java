@@ -1,4 +1,8 @@
 package appDomain;
+import shapes.Shape;
+import shapes.ShapeComparator;
+import shapes.Cone;
+import shapes.Cylinder;
 
 public class AppDriver
 {
@@ -22,6 +26,20 @@ public class AppDriver
 
 		// refer to demo03 OfficeManager.java on how to create specific
 		// objects using reflection from a String
+            
+            
+            
+            
+            
+            Shape[] array1 = new Shape[7];
+            
+            
+            
+            
+            
+            
+            
+            
 	}
 
 }

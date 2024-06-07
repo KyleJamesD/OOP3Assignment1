@@ -3,16 +3,28 @@ import static java.lang.Math.PI;
 public class Cylinder
 {
     
-    double height;
+    Double height;
     double radius;
     double area;
     double volume;
 
-    public Cylinder(double height, double radius) {
+    public Cylinder(Double height, double radius) {
         this.height = height;
         this.radius = radius;
         this.area = calcBaseArea();
         this.volume = calcVolume();
+    }
+
+    public Double getHeight() {
+        return height;
+    }
+
+    public double getArea() {
+        return area;
+    }
+
+    public double getVolume() {
+        return volume;
     }
     
     

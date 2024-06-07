@@ -3,16 +3,28 @@ import static java.lang.Math.tan;
 import static java.lang.Math.toRadians;
 public class PentagonalPrism
 {
-    double height;
+    Double height;
     double side;
     double area;
     double volume;
 
-    public PentagonalPrism(double height, double side) {
+    public PentagonalPrism(Double height, double side) {
         this.height = height;
         this.side = side;
         this.area = calcBaseArea();
         this.volume = calcVolume();
+    }
+
+    public Double getHeight() {
+        return height;
+    }
+
+    public double getArea() {
+        return area;
+    }
+
+    public double getVolume() {
+        return volume;
     }
     
     

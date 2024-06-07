@@ -2,18 +2,30 @@ package shapes;
 
 public class SquarePrism
 {
-    double height;
+    Double height;
     double side;
     double area;
     double volume;
 
     
     //constructor
-    public SquarePrism(double height, double side) {
+    public SquarePrism(Double height, double side) {
         this.height = height;
         this.side = side;
         this.area = calcBaseArea();
         this.volume = calcVolume();
+    }
+
+    public Double getHeight() {
+        return height;
+    }
+
+    public double getArea() {
+        return area;
+    }
+
+    public double getVolume() {
+        return volume;
     }
     
     
