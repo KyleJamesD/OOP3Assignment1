@@ -1,14 +1,14 @@
 package shapes;
 import static java.lang.Math.tan;
 import static java.lang.Math.toRadians;
-public class PentagonalPrism
+public class PentagonalPrism extends Shape
 {
     Double height;
-    double side;
-    double area;
-    double volume;
+    Double side;
+    Double area;
+    Double volume;
 
-    public PentagonalPrism(Double height, double side) {
+    public PentagonalPrism(Double height, Double side) {
         this.height = height;
         this.side = side;
         this.area = calcBaseArea();
@@ -19,11 +19,11 @@ public class PentagonalPrism
         return height;
     }
 
-    public double getArea() {
+    public Double getArea() {
         return area;
     }
 
-    public double getVolume() {
+    public Double getVolume() {
         return volume;
     }
     
@@ -35,15 +35,15 @@ public class PentagonalPrism
     
     
     
-    private double calcBaseArea(){
+    public Double calcBaseArea(){
         double radians = toRadians(54);
-        double area = (5 * (this.side * this.side) * tan(radians))  / 4;
-        return area;
+        double area1 = (5 * (this.side * this.side) * tan(radians))  / 4;
+        return area1;
     }
     
-    private double calcVolume(){
-        double volume = this.area * this.height;
-        return volume;
+    public Double calcVolume(){
+        double volume1 = this.area * this.height;
+        return volume1;
     }
     
     

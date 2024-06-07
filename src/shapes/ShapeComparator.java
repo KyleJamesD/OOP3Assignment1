@@ -4,14 +4,16 @@
  */
 package shapes;
 
+import java.util.Comparator;
+
 /**
  *
  * @author kyled
  */
-public class ShapeComparator  
+public class ShapeComparator implements Comparator<Shape>
 {
-    private int size;
-    private Shape[] data;
+    public int size;
+    public Shape[] data;
 
     public int getSize() {
         return size;
@@ -20,38 +22,48 @@ public class ShapeComparator
     public Shape[] getData() {
         return data;
     }
-
-    public ShapeComparator(Shape[] data) {
-        this.data = data;
-        this.size = data.length;
-    }
     
+    
+            
+        @Override
+        public int compare(Shape s1, Shape s2)
+        {
+            if (s1.calcBaseArea() > s2.calcBaseArea())
+                {return 1;}
+            
+            else if (s1.calcBaseArea() < s2.calcBaseArea())
+                {return -1;}
+            
+            else
+                {return 0;}
+        }
     
     //Correct Implementation of the Bubble sort 
-    
-    public void bubblesort()
+  
+    public void bubblesortArea(Shape[] data)
     {
-
-    for (int j=0; j <size; j++)
-    {
-        for (int y=1; y < size; y++)
-
+        
+        int size1 = data.length;
+        for (int j=0; j < size1; j++)
         {
-            if (data[y].compare(data[y-1], data[y]) > 0)
+            for (int y=1; y < size1; y++)
+
             {
-               Shape x = data[y];
-               data[y] = data[y-1];
-               data[y-1] = x;
+                if (compare(data[y], data[y-1]) > 0)
+                {
+                   Shape x = data[y];
+                   data[y] = data[y-1];
+                   data[y-1] = x;
+
+                }
 
             }
 
         }
 
-    }
-
     }       
 
-    
-    
+        
+        
  //end of class
 }

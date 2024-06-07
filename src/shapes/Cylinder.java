@@ -1,14 +1,14 @@
 package shapes;
 import static java.lang.Math.PI;
-public class Cylinder
+public class Cylinder extends Shape
 {
     
     Double height;
-    double radius;
-    double area;
-    double volume;
+    Double radius;
+    Double area;
+    Double volume;
 
-    public Cylinder(Double height, double radius) {
+    public Cylinder(Double height, Double radius) {
         this.height = height;
         this.radius = radius;
         this.area = calcBaseArea();
@@ -19,24 +19,24 @@ public class Cylinder
         return height;
     }
 
-    public double getArea() {
+    public Double getArea() {
         return area;
     }
 
-    public double getVolume() {
+    public Double getVolume() {
         return volume;
     }
     
     
     
-    private double calcBaseArea(){
-        double area = PI * this.radius * this.radius;
-        return area;
+    public Double calcBaseArea(){
+        double area1 = PI * this.radius * this.radius;
+        return area1;
     }
     
-    private double calcVolume(){
-        double volume = PI * this.radius * this.radius * this.height;
-        return volume;
+    public Double calcVolume(){
+        double volume1 = PI * this.radius * this.radius * this.height;
+        return volume1;
     
     }
     

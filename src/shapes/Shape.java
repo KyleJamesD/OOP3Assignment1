@@ -11,11 +11,16 @@ import java.util.Comparator;
  * @author kyled
  * @param <E>
  */
-public abstract class Shape implements Comparable<Shape>, Comparator<Shape>{
+    public abstract class Shape implements Comparable<Shape>
+    {
     
       Double height;
-      public abstract double calcVolume();
-      public abstract double calcBaseArea();
+      public abstract Double calcVolume();
+      public abstract Double calcBaseArea();
+
+    public Double getHeight() {
+        return height;
+    }
     
     
     
@@ -25,20 +30,6 @@ public abstract class Shape implements Comparable<Shape>, Comparator<Shape>{
         return this.height.compareTo(s.height);
         }   
         
-        
-        
-        @Override
-        public int compare(Shape s1, Shape s2)
-        {
-            if (s1.calcBaseArea()-s2.calcBaseArea() >= 1)
-                {return 1;}
-            
-            else if (s1.calcBaseArea() < s2.calcBaseArea())
-                {return -1;}
-            
-            else
-                {return 0;}
-        }
       
      
         

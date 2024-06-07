@@ -1,12 +1,17 @@
 package shapes;
-public class OctagonalPrism
+
+
+
+
+
+public class OctagonalPrism extends Shape
 {
     Double height;
-    double side;
-    double area;
-    double volume;
+    Double side;
+    Double area;
+    Double volume;
 
-    public OctagonalPrism(Double height, double side) {
+    public OctagonalPrism(Double height, Double side) {
         this.height = height;
         this.side = side;
         this.area = calcBaseArea();
@@ -17,11 +22,11 @@ public class OctagonalPrism
         return height;
     }
 
-    public double getArea() {
+    public Double getArea() {
         return area;
     }
 
-    public double getVolume() {
+    public Double getVolume() {
         return volume;
     }
     
@@ -33,14 +38,14 @@ public class OctagonalPrism
     
     
     
-    private double calcBaseArea(){
-        double area = 2 * (1 + Math.sqrt(2)) * this.side * this.side;
-        return area;
+    public Double calcBaseArea(){
+        double area1 = 2 * (1 + Math.sqrt(2)) * this.side * this.side;
+        return area1;
     }
     
-    private double calcVolume(){
-        double volume = this.area * this.height;
-        return volume;
+    public Double calcVolume(){
+        double volume1 = this.area * this.height;
+        return volume1;
     }
     
     
