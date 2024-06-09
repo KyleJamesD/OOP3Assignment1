@@ -40,6 +40,8 @@ public class AppDriver
             
             
             //BIGG NUMBERS!!
+            
+            /*
             Shape[] array1 = new Shape[8];
             array1[0] = new OctagonalPrism(25253.611,29464.463);
             array1[1] = new Pyramid (34976.672, 8556.669);
@@ -49,10 +51,10 @@ public class AppDriver
             array1[5] = new Pyramid (34569.78, 805.624);
             array1[6] = new Cone (29639.636, 29106.678);
             array1[7] = new PentagonalPrism (3122.807, 9856.483);
+            */
             
             
             
-            /*
             Shape[] array1 = new Shape[8];
             array1[0] = new OctagonalPrism(2.5253611,2.9464463);
             array1[1] = new Pyramid (3.4976672, 8.556669);
@@ -62,7 +64,7 @@ public class AppDriver
             array1[5] = new Pyramid (3.456978, 8.05624);
             array1[6] = new Cone (2.9639636, 2.9106678);
             array1[7] = new PentagonalPrism (3.122807, 9.856483);
-            */
+            
             
             for (int i=0; i < 8 ; i++)
             {
@@ -70,11 +72,29 @@ public class AppDriver
             }
             
             
+            
+            //compare type
+            String area = "a";
+            String volume = "v";
+            String height = "h";
+            //sort algo 
+            String bubble = "b";
+            String insertion = "i";
+            String selection = "s";
+            String quick = "q";
+                   
+            
+            
+            
+            
             // add constructor to shape comparator and call bubble sort function on new object firstcompare.
-            ShapeComparator firstcompare = new ShapeComparator();
+            ShapeComparator firstcompare = new ShapeComparator(array1,area,insertion);
             
-            firstcompare.bubblesortArea(array1);
             
+            //this is for testing 
+            //firstcompare.bubblesort(array1);
+            //this is for testing 
+            firstcompare.insertionsort(array1);
             
             System.out.println();
             System.out.println();

@@ -30,8 +30,6 @@ import java.util.Comparator;
         return this.height.compareTo(s.height);
         }   
         
-      
-     
         
         /*
         public int compareArea(Shape s1, Shape s2)
