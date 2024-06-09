@@ -73,66 +73,56 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
         
     //Correct Implementation of the Bubble sort 
   
-        public void bubblesort(E[] data)
-        {
-
-            for (int j=0; j < size; j++)
+            public void bubbleSort(E[] data)
             {
-                for (int y=1; y < size; y++)
-
+                for (int j=0; j < size; j++)
                 {
-                    if (compare(data[y], data[y-1]) > 0)
+                    for (int y=1; y < size; y++)
                     {
-                       E x = data[y];
-                       data[y] = data[y-1];
-                       data[y-1] = x;
-
+                        if (compare(data[y], data[y-1]) > 0)
+                        {
+                           E x = data[y];
+                           data[y] = data[y-1];
+                           data[y-1] = x;
+                        }
                     }
-
                 }
-
-            }
-
-        }       
+            }       
 
 
-            public void insertionsort(E[] data)
+            public void insertionSort(E[] data)
             {
-
                 for(int i=1; i<size; i++)
                 {
                         int index = i;
-
                     for (int j = i-1; j>= 0; j--)
                     {
                         if (compare(data[index],data[j]) > 0)
                         {
                             E temp = data[index];
                             data[index] = data[j];
-                            data[j] = temp; 
-                            
+                            data[j] = temp;    
                         }
                         index = j;
                     }
                 }
-
             }
 
 
         
             // this will take some time to figure out
-            /*
+            
             public void selectionSort(E[] data)
             {
 
                 for (int i=0; i<size; i++)
                 {
                     E min = data[i];
-                    E minindex = i;
+                   int minindex = i;
                     
                     for (int j = i+1; j<size; j++)
                     {    
-                        if (compare(min , data[j]))
+                        if (compare(min, data[j]) < 0 )
                         {
                             min = data[j];
                             minindex = j;
@@ -144,13 +134,13 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
             } 
             
             
-                    private void swap(int i, int j)
+            private void swap(int i, int j)
                 {
                     E temp = data [i];
                     data[i] = data[j];
                     data[j] = temp; 
                 }
-            */
+            
 
 
 

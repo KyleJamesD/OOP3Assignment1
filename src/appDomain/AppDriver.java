@@ -94,7 +94,10 @@ public class AppDriver
             //this is for testing 
             //firstcompare.bubblesort(array1);
             //this is for testing 
-            firstcompare.insertionsort(array1);
+            //firstcompare.insertionSort(array1);
+            
+           //this is for testing
+           firstcompare.selectionSort(array1);
             
             System.out.println();
             System.out.println();
