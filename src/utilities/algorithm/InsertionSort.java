@@ -1,13 +1,25 @@
 package utilities.algorithm;
 
+import shapes.Shape;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class InsertionSort extends SortAlgorithm {
-    @Override
-    public <T> void sort(T[] data, Comparator<? super T> comparator) {
-        // todo: implement insertion sort
+public class InsertionSort extends SortAlgorithm<Shape> {
 
-        Arrays.sort(data, comparator);
+    public InsertionSort(Comparator<Shape> comparator) {
+        this.comparator = comparator;
+    }
+    @Override
+    public  void sort(Shape[] data) {
+        for (int i = 1; i < data.length; i++) {
+            Shape current = data[i];
+            int j = i - 1;
+            while (j >= 0 && comparator.compare(data[j],current)> 0) {
+                data[j + 1] = data[j];
+                j--;
+            }
+            data[j + 1] = current;
+        }
     }
 }

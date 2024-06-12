@@ -6,7 +6,6 @@ import utilities.algorithm.SortAlgorithm;
 import utilities.factory.UtilityFactory;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 public class AppDriver
 {
@@ -20,12 +19,11 @@ public class AppDriver
 		String[] params =  parseArgs(args); // [comparator, sort, fileName]
 
 		// The factory  generates comparators, sorting algorithms and data
-		Comparator<Shape> shapeComparator = UtilityFactory.getComparator(params[0]);
-		SortAlgorithm sortAlgorithm = UtilityFactory.getSortAlgorithm(params[1]);
+		SortAlgorithm<Shape> sortAlgorithm = UtilityFactory.getSortAlgorithm(params[0], params[1]);
 		Shape[] data = UtilityFactory.getData(params[2]);
 
 		// The context class is used to sort the data
-		SortContext<Shape> sortContext = new SortContext<Shape>(shapeComparator, sortAlgorithm, data);
+		SortContext<Shape> sortContext = new SortContext<Shape>(sortAlgorithm, data);
 		sortContext.sort();
 
 		// test the sorting algorithm

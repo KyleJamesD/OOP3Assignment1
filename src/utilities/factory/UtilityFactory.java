@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
-public class UtilityFactory {
+public class UtilityFactory<T> {
 
     private static final String BUBBLE_SORT = "b";
     private static final String SELECTION_SORT = "s";
@@ -27,24 +27,25 @@ public class UtilityFactory {
     private static final String COMPARE_AREA = "a";
 
 
-    public static Comparator<Shape> getComparator(String parameter) {
-        return switch (parameter) {
+    public static Comparator<Shape> getComparator(String comParam) {
+        return switch (comParam) {
             case COMPARE_HEIGHT -> new HeightComparator();
             case COMPARE_VOLUME -> new BaseAreaComparator();
             case COMPARE_AREA -> new VolumeComparator();
-            default -> throw new IllegalArgumentException("Invalid comparator parameter: " + parameter);
+            default -> throw new IllegalArgumentException("Invalid comparator parameter: " + comParam);
         };
     }
 
-    public static SortAlgorithm getSortAlgorithm(String parameter) {
-        return switch (parameter) {
-            case BUBBLE_SORT -> new BubbleSort();
-            case SELECTION_SORT -> new SelectionSort();
-            case INSERTION_SORT -> new InsertionSort();
-            case MERGE_SORT -> new MergeSort();
-            case QUICK_SORT -> new QuickSort();
-            case MY_SORT -> new MySort();
-            default -> throw new IllegalArgumentException("Invalid sort parameter: " + parameter);
+    public static SortAlgorithm<Shape> getSortAlgorithm(String comParam, String sortParam) {
+        Comparator<Shape> comparator = getComparator(comParam);
+        return switch (sortParam) {
+            case BUBBLE_SORT -> new BubbleSort(comparator);
+            case SELECTION_SORT -> new SelectionSort(comparator);
+            case INSERTION_SORT -> new InsertionSort(comparator);
+            case MERGE_SORT -> new MergeSort(comparator);
+            case QUICK_SORT -> new QuickSort(comparator);
+            case MY_SORT -> new MySort(comparator);
+            default -> throw new IllegalArgumentException("Invalid sort parameter: " + sortParam);
         };
     }
 

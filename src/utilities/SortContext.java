@@ -10,20 +10,18 @@ import java.util.Comparator;
 public class SortContext<T> {
 
     private T[] data;
-    private Comparator<T> comparator;
 
-    private SortAlgorithm sortAlgorithm;
+    private SortAlgorithm<T> sortAlgorithm;
 
-    public SortContext(Comparator<T> comparator, SortAlgorithm sortAlgorithm, T[] data) {
+    public SortContext(SortAlgorithm<T> sortAlgorithm, T[] data) {
 
-        this.comparator = comparator;
         this.sortAlgorithm = sortAlgorithm;
         this.data = data;
     }
 
 
     public void sort() {
-        sortAlgorithm.sort(data, comparator);
+        sortAlgorithm.sort(data);
     }
 
 

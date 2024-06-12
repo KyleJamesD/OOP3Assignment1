@@ -1,13 +1,28 @@
 package utilities.algorithm;
 
+import shapes.Shape;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class SelectionSort extends SortAlgorithm {
+public class SelectionSort extends SortAlgorithm<Shape> {
+    public SelectionSort(Comparator<Shape> comparator) {
+        this.comparator = comparator;
+    }
     @Override
-    public <T> void sort(T[] data, Comparator<? super T> comparator) {
-        // todo: implement selection sort
-
-        Arrays.sort(data, comparator);
+    public void sort(Shape[] data) {
+        for (int i = 0; i < data.length - 1; i++) {
+            int maxIndex = i;
+            for (int j = i + 1; j < data.length; j++) {
+                if (this.comparator.compare(data[j],data[maxIndex]) < 0) {
+                    maxIndex = j;
+                }
+            }
+            if (maxIndex != i) {
+                Shape temp = data[i];
+                data[i] = data[maxIndex];
+                data[maxIndex] = temp;
+            }
+        }
     }
 }
