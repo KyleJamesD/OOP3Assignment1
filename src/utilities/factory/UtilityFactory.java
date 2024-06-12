@@ -10,7 +10,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
@@ -62,7 +61,7 @@ public class UtilityFactory<T> {
 
             line = br.readLine();
             int i = 0;
-            while (line != null || i < size) {
+            while (line != null && i < size) {
                 data[i] = reflectShape(line);
                 i++;
                 line = br.readLine();

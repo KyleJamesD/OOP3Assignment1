@@ -11,9 +11,7 @@ public class QuickSort extends SortAlgorithm<Shape> {
 
     @Override
     public void sort(Shape[] data) {
-        // todo: implement quick sort
-
-
+        quickSort(data, 0, data.length - 1);
     }
 
     private void quickSort(Shape[] data, int left, int right) {
