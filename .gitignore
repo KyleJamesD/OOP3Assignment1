@@ -39,7 +39,4 @@ replay_pid*
 /src/bin/assignment1.eml
 /bin/bin/assignment1.iml
 /assignment1StartingCode.iml
-/.idea/aws.xml
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/vcs.xml
+/.idea/
