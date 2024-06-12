@@ -2,7 +2,6 @@ package utilities.algorithm;
 
 import shapes.Shape;
 
-import java.util.Arrays;
 import java.util.Comparator;
 
 public class InsertionSort extends SortAlgorithm<Shape> {

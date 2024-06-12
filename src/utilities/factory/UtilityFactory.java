@@ -62,7 +62,7 @@ public class UtilityFactory<T> {
 
             line = br.readLine();
             int i = 0;
-            while (line != null) {
+            while (line != null || i < size) {
                 data[i] = reflectShape(line);
                 i++;
                 line = br.readLine();
