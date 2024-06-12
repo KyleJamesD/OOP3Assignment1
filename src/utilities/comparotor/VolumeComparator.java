@@ -8,6 +8,6 @@ public class VolumeComparator implements Comparator<Shape> {
     @Override
     public int compare(Shape o1, Shape o2) {
         // descending order: o2 - o1
-        return Double.compare(o1.calcVolume(), o2.calcVolume());
+        return Double.compare(o2.calcVolume(), o1.calcVolume());
     }
 }
