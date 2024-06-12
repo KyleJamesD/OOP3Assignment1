@@ -1,46 +1,23 @@
 package shapes;
-public class Pyramid extends Shape
-{
-    Double height;
-    double side;
-    double area;
-    double volume;
 
-    public Pyramid(Double height, double side) {
+public class Pyramid extends Shape {
+    double side;
+
+
+    public Pyramid(double height, double side) {
         this.height = height;
         this.side = side;
-        this.area = calcBaseArea();
-        this.volume = calcVolume();
     }
 
-    public Double getHeight() {
-        return height;
+
+    public double calcBaseArea() {
+        return side * side;
     }
 
-    public Double getArea() {
-        return area;
+    public double calcVolume() {
+        return (1.0 / 3.0) * side * side * height;
     }
 
-    public Double getVolume() {
-        return volume;
-    }
-    
-   
-    
-    
-    
-    public Double calcBaseArea(){
-        
-        double area1 = side * side;
-        return area1; 
-    }
-    
-    public Double calcVolume(){
-        
-        double volume1 = (1.0/3.0) * side * side * height;
-        return volume1;
-    }
-    
- 
+
 //end class
 }

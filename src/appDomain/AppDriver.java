@@ -1,94 +1,78 @@
 package appDomain;
-import java.util.Arrays;
-import java.util.Collections;
+
 import shapes.Shape;
-import shapes.ShapeComparator;
-import shapes.Cone;
-import shapes.Cylinder;
-import shapes.OctagonalPrism;
-import shapes.PentagonalPrism;
-import shapes.Prism;
-import shapes.Pyramid;
-import shapes.ShapeComparator;
-import shapes.SquarePrism;
-import shapes.TriangularPrism;
+import utilities.SortContext;
+import utilities.algorithm.SortAlgorithm;
+import utilities.factory.UtilityFactory;
+
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class AppDriver
 {
+	public static final String PREFIX_COMPARE = "-t";
+	public static final String PREFIX_SORT = "-s";
+	public static final String PREFIX_FILE = "-f";
 
 	public static void main( String[] args )
 	{
-		// TODO Auto-generated method stub
+		// The parameters are read from the command line
+		String[] params =  parseArgs(args); // [comparator, sort, fileName]
 
-		// refer to demo001 BasicFileIO.java for a simple example on how to
-		// read data from a text file
+		// The factory  generates comparators, sorting algorithms and data
+		Comparator<Shape> shapeComparator = UtilityFactory.getComparator(params[0]);
+		SortAlgorithm sortAlgorithm = UtilityFactory.getSortAlgorithm(params[1]);
+		Shape[] data = UtilityFactory.getData(params[2]);
 
-		// refer to demo01 Test.java for an example on how to parse command
-		// line arguments and benchmarking tests
+		// The context class is used to sort the data
+		SortContext<Shape> sortContext = new SortContext<Shape>(shapeComparator, sortAlgorithm, data);
+		sortContext.sort();
 
-		// refer to demo02 Student.java for comparable implementation, and
-		// NameCompare.java or GradeCompare for comparator implementations
+		// test the sorting algorithm
+		printSortedData(data);
 
-		// refer to demo02 KittySort.java on how to use a custom sorting
-		// algorithm on a list of comparables to sort using either the
-		// natural order (comparable) or other orders (comparators)
-
-		// refer to demo03 OfficeManager.java on how to create specific
-		// objects using reflection from a String
-            
-            
-            
-            
-            //BIGG NUMBERS!!
-            Shape[] array1 = new Shape[8];
-            array1[0] = new OctagonalPrism(25253.611,29464.463);
-            array1[1] = new Pyramid (34976.672, 8556.669);
-            array1[2] = new TriangularPrism (12209.184, 38774.693);
-            array1[3] = new Cylinder (1521.368, 20605.12);
-            array1[4] = new Pyramid (31006.316, 9388.066);
-            array1[5] = new Pyramid (34569.78, 805.624);
-            array1[6] = new Cone (29639.636, 29106.678);
-            array1[7] = new PentagonalPrism (3122.807, 9856.483);
-            
-            
-            
-            /*
-            Shape[] array1 = new Shape[8];
-            array1[0] = new OctagonalPrism(2.5253611,2.9464463);
-            array1[1] = new Pyramid (3.4976672, 8.556669);
-            array1[2] = new TriangularPrism (1.2209184, 3.8774693);
-            array1[3] = new Cylinder (1.521368, 2.060512);
-            array1[4] = new Pyramid (3.1006316, 9.388066);
-            array1[5] = new Pyramid (3.456978, 8.05624);
-            array1[6] = new Cone (2.9639636, 2.9106678);
-            array1[7] = new PentagonalPrism (3.122807, 9.856483);
-            */
-            
-            for (int i=0; i < 8 ; i++)
-            {
-                System.out.println(array1[i].calcBaseArea());
-            }
-            
-            
-            // add constructor to shape comparator and call bubble sort function on new object firstcompare.
-            ShapeComparator firstcompare = new ShapeComparator();
-            
-            firstcompare.bubblesortArea(array1);
-            
-            
-            System.out.println();
-            System.out.println();
-            System.out.println();
-                
-                
-            for (int j=0; j < 8 ; j++)
-            {
-                System.out.println(array1[j].calcBaseArea());
-            }
-                
-                
-                
-          //end of main      
 	}
-//end of class
+
+	private static String[] parseArgs(String[] args) {
+		if (args.length != 3) {
+			throw new IllegalArgumentException("Invalid number of arguments: " + args.length);
+		}
+		String[] parsedArgs = new String[3];
+		for (String arg : args) {
+			if (arg.length() <= 2) {
+				throw new IllegalArgumentException("Invalid argument: " + arg);
+			}
+			// prefix: -t for comparator, -s for sort, -f for file
+			String prefix = arg.substring(0, 2);
+			if (prefix.equalsIgnoreCase(PREFIX_COMPARE)) {
+				parsedArgs[0] = arg.substring(prefix.length());
+			}
+			if (prefix.equalsIgnoreCase(PREFIX_SORT)) {
+				parsedArgs[1] = arg.substring(prefix.length());
+			}
+			if (prefix.equalsIgnoreCase(PREFIX_FILE)){
+				parsedArgs[2] = arg.substring(prefix.length());
+			}
+		}
+		if (parsedArgs[0] == null || parsedArgs[1] == null || parsedArgs[2] == null) {
+			throw new IllegalArgumentException("Invalid arguments: " + Arrays.toString(args));		}
+		return parsedArgs;
+	}
+
+	private static void printSortedData(Shape[] data) {
+		if (data == null || data.length == 0) {
+			System.out.println("No data to print");
+			return;
+		}
+		int index = 0;
+		while (true) {
+			System.out.println(index + ":" + data[index].toString());
+			index += 1000;
+			if (index >= data.length -1 ) {
+				System.out.println(data.length -1 + ":" + data[data.length - 1].toString());
+				break;
+			}
+		}
+	}
+
 }

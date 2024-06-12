@@ -4,51 +4,33 @@
  */
 package shapes;
 
-import java.util.Comparator;
-
 /**
- *
+ * @param <>
  * @author kyled
- * @param <E>
  */
-    public abstract class Shape implements Comparable<Shape>
-    {
-    
-      Double height;
-      public abstract Double calcVolume();
-      public abstract Double calcBaseArea();
+public abstract class Shape implements Comparable<Shape> {
 
-    public Double getHeight() {
+    public double height;
+
+    public abstract double calcVolume();
+
+    public abstract double calcBaseArea();
+
+    public double getHeight() {
         return height;
     }
-    
-    
-    
-        @Override
-        public int compareTo(Shape s) 
-        {
-        return this.height.compareTo(s.height);
-        }   
-        
-      
-     
-        
-        /*
-        public int compareArea(Shape s1, Shape s2)
-        {
-            int areaComparison = Double.compare(s1.calcBaseArea(), s2.calcBaseArea());
-            return areaComparison;
-        }
-        
-        
-        public int compareVolume(Shape s1, Shape s2)
-        {
-            int areaComparison = Double.compare(s1.calcVolume(), s2.calcVolume());
-            return areaComparison;
-        }
-        */
 
+    @Override
+    public int compareTo(Shape o) {
+        return Double.compare(this.height, o.height);
+    }
 
-    
-//end class  
+    @Override
+    public String toString() {
+        return  this.getClass().getSimpleName() +"{" +
+                "height=" + height +
+                ", baseArea=" + calcBaseArea() +
+                ", volume=" + calcVolume() +
+                '}';
+    }
 }

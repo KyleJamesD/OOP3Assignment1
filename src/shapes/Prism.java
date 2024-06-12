@@ -8,12 +8,5 @@ package shapes;
  * @author kyled
  */
 public abstract class Prism extends Shape{
-    
-    Double height;
-    Double side;
-    public abstract Double calcVolume();
-    public abstract Double calcBaseArea();
-    
-    
-  //end class  
+    double side;
 }
