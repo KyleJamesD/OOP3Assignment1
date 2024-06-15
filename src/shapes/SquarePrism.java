@@ -2,7 +2,6 @@ package shapes;
 
 public class SquarePrism extends Shape
 {
-    Double height;
     Double side;
     Double area;
     Double volume;

@@ -2,7 +2,6 @@ package shapes;
 
 public class TriangularPrism extends Shape
 {
-    Double height;
     Double side;
     Double area;
     Double volume;
@@ -36,7 +35,7 @@ public class TriangularPrism extends Shape
     }
     
     public Double calcVolume(){
-        double volume1 = this.area * height;
+        double volume1 = calcBaseArea() * height;
         return volume1;
     
     }

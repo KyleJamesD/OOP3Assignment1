@@ -123,9 +123,27 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                            data[y-1] = x;
                         }
                     }
+                    
+                    //print out every 1000th value processed
+                    if(comparetype == "a"){
                     if (j == 0 || j % 1000 == 0 || j == size - 1) {
-                    System.out.println("Shape at index " + j + ": " + data[j]);
+                    System.out.println("Shape at index " + j + ": " + data[j].calcBaseArea());
                     }
+                
+                    }
+                    else if (comparetype == "v"){
+                    if (j == 0 || j % 1000 == 0 || j == size - 1) {
+                    System.out.println("Shape at index " + j + ": " + data[j].calcVolume());
+                    }
+                
+                    }
+                    else {
+                        if (j == 0 || j % 1000 == 0 || j == size - 1) {
+                    System.out.println("Shape at index " + j + ": " + data[j].height);
+                    }
+                
+                    }
+
                 }
             }       
 
@@ -145,7 +163,27 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                         }
                         index = j;
                     }
+                    //print out every 1000th value processed
+                    if(comparetype == "a"){
+                    if (i == 0 || i % 1000 == 0 || i == size - 1) {
+                    System.out.println("Shape at index " + i + ": " + data[i].calcBaseArea());
+                    }
+                
+                    }
+                    else if (comparetype == "v"){
+                    if (i == 0 || i % 1000 == 0 || i == size - 1) {
+                    System.out.println("Shape at index " + i + ": " + data[i].calcVolume());
+                    }
+                
+                    }
+                    else {
+                        if (i == 0 || i % 1000 == 0 || i == size - 1) {
+                    System.out.println("Shape at index " + i + ": " + data[i].height);
+                    }
+                
+                    }
                 }
+                
             }
 
 
@@ -170,6 +208,24 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                     }
             
                     swap(i, minindex);
+                    if(comparetype == "a"){
+                    if (i == 0 || i % 1000 == 0 || i == size - 1) {
+                    System.out.println("Shape at index " + i + ": " + data[i].calcBaseArea());
+                    }
+                
+                    }
+                    else if (comparetype == "v"){
+                    if (i == 0 || i % 1000 == 0 || i == size - 1) {
+                    System.out.println("Shape at index " + i + ": " + data[i].calcVolume());
+                    }
+                
+                    }
+                    else {
+                        if (i == 0 || i % 1000 == 0 || i == size - 1) {
+                    System.out.println("Shape at index " + i + ": " + data[i].height);
+                    }
+                
+                    }
                 }
             } 
             
@@ -242,23 +298,35 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                         j++;
                         
                     }
-                    k++;
+                    //print every 1000th
+                    //if (k == 0 || k % 1000 == 0 || k == data.length - 1) {
+                   // System.out.println("Shape at index " + k + ": " + data[k]);
+                  //  }
+                k++;
                                       
                 }
                 while ( i < leftArrayLength) 
                 {
                     data[k] = leftHalf[i];
+                    //print every 1000th
+                    //if (k == 0 || k % 1000 == 0 || k == data.length - 1) {
+                    //System.out.println("Shape at index " + k + ": " + data[k]);
+                    //    }
                     i++;
                     k++;
                 }
-                    
-                    
+
+
                 while(j < rightArrayLength)
                 {
                     data[k] = rightHalf[j];
+                    //print every 1000th
+                    //if (k == 0 || k % 1000 == 0 || k == data.length - 1) {
+                    //System.out.println("Shape at index " + k + ": " + data[k]);
+                    //}
                     j++;
                     k++;
-                }      
+                }              
             
             }
             

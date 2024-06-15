@@ -6,7 +6,6 @@ package shapes;
 
 public class OctagonalPrism extends Shape
 {
-    Double height;
     Double side;
     Double area;
     Double volume;
@@ -38,13 +37,15 @@ public class OctagonalPrism extends Shape
     
     
     
+    @Override
     public Double calcBaseArea(){
         double area1 = 2 * (1 + Math.sqrt(2)) * this.side * this.side;
         return area1;
     }
     
+    @Override
     public Double calcVolume(){
-        double volume1 = this.area * this.height;
+        double volume1 = calcBaseArea() * this.height;
         return volume1;
     }
     

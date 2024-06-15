@@ -7,7 +7,6 @@ import shapes.Cone;
 import shapes.Cylinder;
 import shapes.OctagonalPrism;
 import shapes.PentagonalPrism;
-import shapes.Prism;
 import shapes.Pyramid;
 import shapes.ShapeComparator;
 import shapes.SquarePrism;
@@ -41,88 +40,39 @@ public class AppDriver
 		// refer to demo03 OfficeManager.java on how to create specific
 		// objects using reflection from a String
             
+            //  **************begin command line code ***************************** 
+            
+            String filepath = "C:\\Users\\kyled\\Desktop\\Github\\Java Projects\\OOP3Assignment1\\res\\shapes2.txt";
+            String comparetype = "h";
+            String sortalgo = "q";
             
             
             
-            //BIGG NUMBERS!!
-            
-            /*
-            Shape[] array1 = new Shape[8];
-            array1[0] = new OctagonalPrism(25253.611,29464.463);
-            array1[1] = new Pyramid (34976.672, 8556.669);
-            array1[2] = new TriangularPrism (12209.184, 38774.693);
-            array1[3] = new Cylinder (1521.368, 20605.12);
-            array1[4] = new Pyramid (31006.316, 9388.066);
-            array1[5] = new Pyramid (34569.78, 805.624);
-            array1[6] = new Cone (29639.636, 29106.678);
-            array1[7] = new PentagonalPrism (3122.807, 9856.483);
-            */
             
             
-            /*
-            Shape[] array1 = new Shape[8];
-            array1[0] = new OctagonalPrism(2.5253611,2.9464463);
-            array1[1] = new Pyramid (3.4976672, 8.556669);
-            array1[2] = new TriangularPrism (1.2209184, 3.8774693);
-            array1[3] = new Cylinder (1.521368, 2.060512);
-            array1[4] = new Pyramid (3.1006316, 9.388066);
-            array1[5] = new Pyramid (3.456978, 8.05624);
-            array1[6] = new Cone (2.9639636, 2.9106678);
-            array1[7] = new PentagonalPrism (3.122807, 9.856483);
-            
-            for (int i=0; i < 8 ; i++)
-            {
-                System.out.println(array1[i].calcBaseArea());
-            }
-            */
-            // add constructor to shape comparator and call bubble sort function on new object firstcompare.
-            //ShapeComparator firstcompare = new ShapeComparator(array1,area,insert);
             
             
-            //this is for testing 
-            //firstcompare.bubblesort(array1);
-            //this is for testing 
-            //firstcompare.insertionSort(array1);
-            
-           //this is for testing
-           //firstcompare.quickSort(array1);
-            /*
-            System.out.println();
-            System.out.println();
-            System.out.println();   
-            for (int j=0; j < 8 ; j++)
-            {
-                System.out.println(array1[j].calcBaseArea());
-            }
-              */  
-            
-  
-            
-            //begin command line code            
-            String filepath = null;
-            String comparetype = null;
-            String sortalgo = null;
-            
-            
-           /* switch(args[0].toLowerCase()){
+           /*
+            for(int i = 0; i < args.length; i++){
+            switch(args[i].toLowerCase()){
             
                 case "-f":
-                 filepath = args[0].substring(2);
+                 filepath = args[i].substring(2);
                  break;
                  
                  case "-t":
-                 comparetype = args[0].substring(2);
+                 comparetype = args[i].substring(2);
                  break;
                  
                  case "-s":
-                 sortalgo = args[0].substring(2);
+                 sortalgo = args[i].substring(2);
                  break;
-            }*/
+                }
+            }
+           */
            
-           
-           
+           /*
            for (String arg : args ){
-           
            switch (arg.substring(0,2).toLowerCase()){
                 case "-f":
                  filepath = args[0].substring(2);
@@ -137,8 +87,33 @@ public class AppDriver
                  break;
                 }
             }
-                
+             
+           */
+            
+            
            
+           /*
+           for (int i = 0; i < args.length; i++) 
+           {
+            if (args[i].startsWith("-f")) 
+            {
+                filepath = args[i].substring(2);
+            } 
+            else if (args[i].startsWith("-t")) 
+            {
+                comparetype = args[i].substring(2).toLowerCase();
+            } 
+            else if (args[i].startsWith("-s")) 
+            {
+                sortalgo = args[i].substring(2).toLowerCase();
+            }
+            
+           }
+           */
+           
+           
+           
+           /*
            if (filepath == null){
            System.out.println("File path must be inputed with -f option.");
            return;
@@ -154,6 +129,7 @@ public class AppDriver
            return;
            
            } 
+*/
             
             System.out.println("File Path:"+ filepath);
             System.out.println("Compare Type:"+ comparetype);
@@ -165,9 +141,9 @@ public class AppDriver
             
             ShapeComparator firstcompare = new ShapeComparator(shapes,comparetype,sortalgo);
             
-            
+            //start of time 
             long start = System.currentTimeMillis();
-
+            // run sorting algo
             firstcompare.ultimateCompare(sortalgo);
             long stop = System.currentTimeMillis();
             
@@ -186,6 +162,7 @@ public class AppDriver
         //parse file path into an array of type shape.
             public static Shape [] parseFile(String filepath){
             Shape[] shapes ;
+            //trys to read file ifnot diplayes file is empty
             try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
             String line = br.readLine();
             if (line == null) {

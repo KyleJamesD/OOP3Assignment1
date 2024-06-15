@@ -2,8 +2,6 @@ package shapes;
 import static java.lang.Math.PI;
 public class Cylinder extends Shape
 {
-    
-    Double height;
     Double radius;
     Double area;
     Double volume;

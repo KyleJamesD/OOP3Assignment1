@@ -3,7 +3,6 @@ import static java.lang.Math.tan;
 import static java.lang.Math.toRadians;
 public class PentagonalPrism extends Shape
 {
-    Double height;
     Double side;
     Double area;
     Double volume;
@@ -42,7 +41,7 @@ public class PentagonalPrism extends Shape
     }
     
     public Double calcVolume(){
-        double volume1 = this.area * this.height;
+        double volume1 = calcBaseArea() * this.height;
         return volume1;
     }
     
