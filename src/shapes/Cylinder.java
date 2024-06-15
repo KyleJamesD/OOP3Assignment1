@@ -8,33 +8,39 @@ public class Cylinder extends Shape
     Double area;
     Double volume;
 
-    public Cylinder(Double height, Double radius) {
+    public Cylinder(Double height, Double radius) 
+    {
         this.height = height;
         this.radius = radius;
         this.area = calcBaseArea();
         this.volume = calcVolume();
     }
 
-    public Double getHeight() {
+    public Double getHeight() 
+    {
         return height;
     }
 
-    public Double getArea() {
+    public Double getArea() 
+    {
         return area;
     }
 
-    public Double getVolume() {
+    public Double getVolume() 
+    {
         return volume;
     }
     
     
     
-    public Double calcBaseArea(){
+    public Double calcBaseArea()
+    {
         double area1 = PI * this.radius * this.radius;
         return area1;
     }
     
-    public Double calcVolume(){
+    public Double calcVolume()
+    {
         double volume1 = PI * this.radius * this.radius * this.height;
         return volume1;
     

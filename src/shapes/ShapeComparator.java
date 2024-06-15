@@ -13,7 +13,7 @@ import java.util.Comparator;
 public class ShapeComparator<E extends Shape> implements Comparator<E>
 {
     public int size;
-    public E [] data;
+    public E []data;
     public String comparetype;
     public String sortalgo;
 
@@ -64,8 +64,45 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                     else
                     {return 0;}
                     
+                case "h":
+                    if (s1.compareTo(s2) > 1)
+                    {return 1;}
+                    else if (s1.compareTo(s2) < 1)
+                    {return -1;}
+                    else 
+                    {return 0;}       
             }   
             
+        }
+        
+        
+        public void ultimateCompare(String sortalgo){
+            
+            switch(sortalgo)
+            {
+                
+                case"b":
+                bubbleSort(data);
+                break;
+            
+                case"i":
+                insertionSort(data);
+                break;
+                
+                case"s":
+                selectionSort(data);
+                break;
+                
+                case"m":
+                mergeSort(data);
+                break;
+                
+                case"q":
+                quickSort(data);
+                break;
+            }
+        
+        
         }
         
         
@@ -85,6 +122,9 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                            data[y] = data[y-1];
                            data[y-1] = x;
                         }
+                    }
+                    if (j == 0 || j % 1000 == 0 || j == size - 1) {
+                    System.out.println("Shape at index " + j + ": " + data[j]);
                     }
                 }
             }       
@@ -143,6 +183,127 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
             
 
 
+            
+            public void mergeSort(E[] data)
+            {
+                int arrayLength = data.length;
+                
+                if (arrayLength < 2 )
+                {
+                    return;
+                }
+            
+                int midindex = arrayLength / 2;
+                
+                E[] leftHalf =  (E[]) new Shape[midindex];
+                E[] rightHalf = (E[]) new Shape[arrayLength-midindex];
+                
+                for (int i = 0; i < midindex; i++)
+                {
+                    leftHalf[i] = data[i];
+                }
+                
+                for (int i = midindex; i < arrayLength; i++)
+                {   
+                    rightHalf[i - midindex] = data[i];
+                }
+                
+                mergeSort(leftHalf);
+                mergeSort(rightHalf);
+               
+                //merge
+                merge(data,leftHalf,rightHalf);
+                        
+                
+                
+            }
+            
+            private void merge(E[] data,E[] leftHalf,E[] rightHalf)
+            {
+                int leftArrayLength = leftHalf.length;
+                int rightArrayLength = rightHalf.length;
+                
+                //establish 3 int variables and set to zero. on the same line, wayyy to cool
+                int i =0 ,j =0 ,k =0;
+                
+                
+                while (i < leftArrayLength && j < rightArrayLength)
+                {
+                    
+                    //implement Compare here
+                    if (compare(leftHalf[i],rightHalf[j]) >= 0)
+                    {
+                        data[k] = leftHalf[i];
+                        i++;
+                    }
+                    else
+                    {
+                        data[k] = rightHalf[j];
+                        j++;
+                        
+                    }
+                    k++;
+                                      
+                }
+                while ( i < leftArrayLength) 
+                {
+                    data[k] = leftHalf[i];
+                    i++;
+                    k++;
+                }
+                    
+                    
+                while(j < rightArrayLength)
+                {
+                    data[k] = rightHalf[j];
+                    j++;
+                    k++;
+                }      
+            
+            }
+            
+            
+            //Quick Sort
+            
+            
+            public void quickSort(E[] array) {
+            quickSortRecursive(array, 0, array.length - 1);
+            }
+            
+            private void quickSortRecursive(E arr[], int begin, int end) 
+            {
+                
+                
+                
+                if (begin < end) 
+                {
+                int partitionIndex = partition(arr, begin, end);
+
+                quickSortRecursive(arr, begin, partitionIndex-1);
+                quickSortRecursive(arr, partitionIndex+1, end);
+                }
+            }
+            private int partition(E arr[], int begin, int end) 
+            {
+                E pivot = arr[end];
+                int i = (begin-1);
+
+                for (int j = begin; j < end; j++) {
+                    if (compare(arr[j], pivot) >= 0) {
+                        i++;
+
+                        E swapTemp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = swapTemp;
+                    }
+                }
+
+                E swapTemp = arr[i+1];
+                arr[i+1] = arr[end];
+                arr[end] = swapTemp;
+
+                return i+1;
+            }
 
 
         

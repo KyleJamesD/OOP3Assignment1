@@ -5,7 +5,7 @@ public class Cone extends Shape
 {
 
     //fields for cone class
-    Double height;
+    
     Double radius;
     Double area;
     Double volume;
