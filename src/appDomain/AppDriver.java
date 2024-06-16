@@ -2,7 +2,6 @@ package appDomain;
 import java.util.Arrays;
 import java.util.Collections;
 import shapes.Shape;
-import shapes.ShapeComparator;
 import shapes.Cone;
 import shapes.Cylinder;
 import shapes.OctagonalPrism;
@@ -14,7 +13,7 @@ import shapes.TriangularPrism;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
+import java.util.ArrayList;
 
 
 public class AppDriver
@@ -42,13 +41,89 @@ public class AppDriver
             
             //  **************begin command line code ***************************** 
             
-            String filepath = "C:\\Users\\kyled\\Desktop\\Github\\Java Projects\\OOP3Assignment1\\res\\shapes2.txt";
+            String filepath = "C:\\Users\\kyled\\Desktop\\Github\\JavaProjects\\OOP3Assignment1\\res\\shapes2.txt";
             String comparetype = "h";
             String sortalgo = "q";
             
             
+            String arg0 = args[0];
+            String arg1 = args[1];
+            String arg2 = args[2];
+            
+            System.out.println(arg0);
+            System.out.println(arg1);
+            System.out.println(arg2);
             
             
+           for (int i = 0; i < args.length; i++) 
+           {
+            if (args[i].startsWith("-f") || args[i].startsWith("-F") ) 
+            {
+                filepath = args[i].substring(2);
+            } 
+            else if (args[i].startsWith("-t") || args[i].startsWith("-T")) 
+            {
+                comparetype = args[i].substring(2).toLowerCase();
+            } 
+            else if (args[i].startsWith("-s") || args[i].startsWith("-S")) 
+            {
+                sortalgo = args[i].substring(2).toLowerCase();
+            }
+            
+           }
+           
+            
+           // ArrayList<String> argsList = new ArrayList<>();
+            //argsList.add(arg0);
+           // argsList.add(arg1);
+           // argsList.add(arg2);
+            
+            
+            /*
+            for(int i = 0; i < argsList.size(); i++){
+            switch(argsList.get(i).substring(0,2).toLowerCase()){
+            
+                case "-f":
+                 filepath = argsList.get(i).substring(2);
+                 break;
+                 
+                 case "-t":
+                 comparetype = argsList.get(i).substring(2);
+                 break;
+                 
+                 case "-s":
+                 sortalgo = argsList.get(i).substring(2);
+                 break;
+                }
+            }
+            */
+
+            
+            System.out.println("File Path:"+ filepath);
+            System.out.println("Compare Type:"+ comparetype);
+            System.out.println("Sort Method:"+ sortalgo);
+            
+            //call parseFile to parse given file and create an array of specific Shape objects
+            Shape shapes[] = parseFile(filepath);
+            //create new Shape comparator object 
+            
+            ShapeComparator firstcompare = new ShapeComparator(shapes,comparetype,sortalgo);
+            
+            //start of time 
+            long start = System.currentTimeMillis();
+            // run sorting algo
+            firstcompare.ultimateCompare(sortalgo);
+            long stop = System.currentTimeMillis();
+            
+            long time1 = stop - start;
+            System.out.println("Time taken: " + time1 + " milliseconds");
+            
+            
+                
+                
+                
+          
+                      
             
             
             
@@ -92,24 +167,7 @@ public class AppDriver
             
             
            
-           /*
-           for (int i = 0; i < args.length; i++) 
-           {
-            if (args[i].startsWith("-f")) 
-            {
-                filepath = args[i].substring(2);
-            } 
-            else if (args[i].startsWith("-t")) 
-            {
-                comparetype = args[i].substring(2).toLowerCase();
-            } 
-            else if (args[i].startsWith("-s")) 
-            {
-                sortalgo = args[i].substring(2).toLowerCase();
-            }
-            
-           }
-           */
+           
            
            
            
@@ -126,35 +184,12 @@ public class AppDriver
            } 
            if (sortalgo == null){
            System.out.println("Sort method must be inputed with -s followed by one of the characters \' b,i,s,m,q \'.");
-           return;
-           
+           return; 
            } 
-*/
-            
-            System.out.println("File Path:"+ filepath);
-            System.out.println("Compare Type:"+ comparetype);
-            System.out.println("Sort Method:"+ sortalgo);
-            
-            //call parseFile to parse given file and create an array of specific Shape objects
-            Shape shapes[] = parseFile(filepath);
-            //create new Shape comparator object 
-            
-            ShapeComparator firstcompare = new ShapeComparator(shapes,comparetype,sortalgo);
-            
-            //start of time 
-            long start = System.currentTimeMillis();
-            // run sorting algo
-            firstcompare.ultimateCompare(sortalgo);
-            long stop = System.currentTimeMillis();
-            
-            long time1 = stop - start;
-            System.out.println("Time taken: " + time1 + " milliseconds");
-            
-            
-                
-                
-          //end of main      
-    }
+           */
+           
+           //end of main
+        }
         
         
         
@@ -224,5 +259,11 @@ public class AppDriver
 
         return shapes;
     }
+           
+            
+            
+            
+            
+            
 //end of class
 }
