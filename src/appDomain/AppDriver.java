@@ -22,9 +22,12 @@ public class AppDriver
 		SortAlgorithm<Shape> sortAlgorithm = UtilityFactory.getSortAlgorithm(params[0], params[1]);
 		Shape[] data = UtilityFactory.getData(params[2]);
 
+		long start = System.currentTimeMillis();
 		// The context class is used to sort the data
 		SortContext<Shape> sortContext = new SortContext<Shape>(sortAlgorithm, data);
 		sortContext.sort();
+		long end = System.currentTimeMillis();
+		System.out.println("Time taken: " + (end - start) + " ms");
 
 		// test the sorting algorithm
 		printSortedData(data);
