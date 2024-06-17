@@ -27,25 +27,37 @@ public class UtilityFactory<T> {
 
 
     public static Comparator<Shape> getComparator(String comParam) {
-        return switch (comParam) {
-            case COMPARE_HEIGHT -> new HeightComparator();
-            case COMPARE_VOLUME -> new BaseAreaComparator();
-            case COMPARE_AREA -> new VolumeComparator();
-            default -> throw new IllegalArgumentException("Invalid comparator parameter: " + comParam);
-        };
+         switch (comParam) {
+            case COMPARE_HEIGHT :
+                return new HeightComparator();
+            case COMPARE_VOLUME :
+                return new VolumeComparator();
+            case COMPARE_AREA :
+                return new BaseAreaComparator();
+            default : throw new IllegalArgumentException("Invalid comparator parameter: " + comParam);
+        }
     }
 
     public static SortAlgorithm<Shape> getSortAlgorithm(String comParam, String sortParam) {
         Comparator<Shape> comparator = getComparator(comParam);
-        return switch (sortParam) {
-            case BUBBLE_SORT -> new BubbleSort(comparator);
-            case SELECTION_SORT -> new SelectionSort(comparator);
-            case INSERTION_SORT -> new InsertionSort(comparator);
-            case MERGE_SORT -> new MergeSort(comparator);
-            case QUICK_SORT -> new QuickSort(comparator);
-            case MY_SORT -> new MySort(comparator);
-            default -> throw new IllegalArgumentException("Invalid sort parameter: " + sortParam);
-        };
+         switch (sortParam) {
+            case BUBBLE_SORT: 
+                return new BubbleSort(comparator);
+            case SELECTION_SORT : 
+                return new SelectionSort(comparator);
+            case INSERTION_SORT :
+                return new InsertionSort(comparator);
+            case MERGE_SORT : 
+                return new MergeSort(comparator);
+            case QUICK_SORT :
+                return new QuickSort(comparator);
+            case MY_SORT :
+                return new MySort(comparator);
+            default :
+                throw new IllegalArgumentException("Invalid sort parameter: " + sortParam);
+                
+        }
+       
     }
 
     public static Shape[] getData(String param) {
