@@ -15,7 +15,7 @@ public class Cylinder extends Shape
     }
     
     public double calcVolume(){
-        return Math.round(PI * this.radius * this.radius);
+        return Math.round(PI * this.radius * this.radius * this.height);
     
     }
 
