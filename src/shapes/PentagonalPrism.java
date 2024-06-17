@@ -35,13 +35,13 @@ public class PentagonalPrism extends Shape
     
     
     public Double calcBaseArea(){
-        double radians = toRadians(54);
-        double area1 = (5 * (this.side * this.side) * tan(radians))  / 4;
+        Double radians = toRadians(54);
+        Double area1 = (5 * (this.side * this.side) * tan(radians))  / 4;
         return area1;
     }
     
     public Double calcVolume(){
-        double volume1 = calcBaseArea() * this.height;
+        Double volume1 = calcBaseArea() * this.height;
         return volume1;
     }
     

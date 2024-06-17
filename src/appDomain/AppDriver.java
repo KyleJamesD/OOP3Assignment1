@@ -93,19 +93,54 @@ public class AppDriver
             
             //start of time 
             long start = System.currentTimeMillis();
-            // run sorting algo
+            //*********************TESTING*********************//
+            for(int i=0; i<firstcompare.size; i++){
+                System.out.println(firstcompare.data[i].calcBaseArea());
+            
+            }
+                //*********************TESTING*********************//
+
+                // run sorting algo
+            
             firstcompare.ultimateCompare(sortalgo);
             long stop = System.currentTimeMillis();
             
             long time1 = stop - start;
             System.out.println("Time taken: " + time1 + " milliseconds");
             
+            
+            
+            
+            // ****************FOR TESTING ONLY***************************//
+            
+            
+            
+            
             for(int i=0; i<firstcompare.size; i++){
                 System.out.println(firstcompare.data[i].calcBaseArea());
             
             }
             
+            for(int i=0; i<firstcompare.size; i++){
+                    if (i==0 || i % 1000 == 0 || i == firstcompare.size - 1){
+                    System.out.println("Shape at index " + i + " after sorting: " + firstcompare.data[i].calcBaseArea());
+                    }
+            }
             
+            
+            /*
+            for(int i=0; i<firstcompare.size; i++){
+                System.out.println(firstcompare.data[i].calcBaseArea());
+            
+            }
+            
+            for(int i=0; i<firstcompare.size; i++){
+                    if (i==0 || i % 1000 == 0 || i == firstcompare.size - 1){
+                    System.out.println("Shape at index " + i + ": " + firstcompare.data[i].calcBaseArea());
+                    }
+            }
+
+*/
            //end of main
         }
         

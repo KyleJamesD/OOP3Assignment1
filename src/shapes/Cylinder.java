@@ -33,13 +33,13 @@ public class Cylinder extends Shape
     
     public Double calcBaseArea()
     {
-        double area1 = PI * this.radius * this.radius;
+        Double area1 = PI * this.radius * this.radius;
         return area1;
     }
     
     public Double calcVolume()
     {
-        double volume1 = PI * this.radius * this.radius * this.height;
+        Double volume1 = PI * this.radius * this.radius * this.height;
         return volume1;
     
     }

@@ -37,13 +37,13 @@ public class Cone extends Shape
     @Override
     public Double calcBaseArea()
     {
-        double area = PI * this.radius * this.radius;
-        return area;  
+        Double area1 = PI * this.radius * this.radius;
+        return area1;  
     }
     
     @Override
     public Double calcVolume(){ 
-        double volume1 = (1.0/3.0) * PI * (this.radius*this.radius)*this.height;
+        Double volume1 = (1.0/3.0) * PI * (this.radius*this.radius)*this.height;
         return volume1;
     }
    

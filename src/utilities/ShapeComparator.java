@@ -116,6 +116,31 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
             {
                 for (int j=0; j < size; j++)
                 {
+                    //print out every 1000th value processed
+                    //if(comparetype == "a")
+                    if("a".equals(comparetype))
+                    {
+                        if (j == 0 || j % 1000 == 0 || j == size - 1) {
+                        System.out.println("Shape at index " + j + ": " + data[j].calcBaseArea());
+                        }
+                
+                    }
+                    
+                    else if ("v".equals(comparetype))
+                    {
+                        if (j == 0 || j % 1000 == 0 || j == size - 1) {
+                        System.out.println("Shape at index " + j + ": " + data[j].calcVolume());
+                        }
+                
+                    }
+                    else 
+                    {
+                        if (j == 0 || j % 1000 == 0 || j == size - 1) {
+                        System.out.println("Shape at index " + j + ": " + data[j].height);
+                        }
+                
+                    }
+                    
                     for (int y=1; y < size; y++)
                     {
                         if (compare(data[y], data[y-1]) > 0)
@@ -126,25 +151,7 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                         }
                     }
                     
-                    //print out every 1000th value processed
-                    if(comparetype == "a"){
-                    if (j == 0 || j % 1000 == 0 || j == size - 1) {
-                    System.out.println("Shape at index " + j + ": " + data[j].calcBaseArea());
-                    }
-                
-                    }
-                    else if (comparetype == "v"){
-                    if (j == 0 || j % 1000 == 0 || j == size - 1) {
-                    System.out.println("Shape at index " + j + ": " + data[j].calcVolume());
-                    }
-                
-                    }
-                    else {
-                        if (j == 0 || j % 1000 == 0 || j == size - 1) {
-                    System.out.println("Shape at index " + j + ": " + data[j].height);
-                    }
-                
-                    }
+                    
 
                 }
             }       
@@ -155,6 +162,39 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                 for(int i=1; i<size; i++)
                 {
                         int index = i;
+                    if( "a".equals(comparetype))
+                    {
+                        if (i == 1) {
+                        System.out.println("Shape at index " + i + ": " + data[i-1].calcBaseArea());
+                        }
+
+                        else if (i % 1000 == 0 || i == size - 1){
+                        System.out.println("Shape at index " + i + ": " + data[i].calcBaseArea());
+                        }                    
+                
+                    }
+                    
+                    
+                    if ("v".equals(comparetype))
+                    {
+                        if (i == 1) {
+                        System.out.println("Shape at index " + i + ": " + data[i-1].calcVolume());
+                        }
+                        else if (i % 1000 == 0 || i == size - 1){
+                        System.out.println("Shape at index " + i + ": " + data[i].calcBaseArea());
+                        }
+                
+                    }
+                    
+                    else {
+                        if (i == 1) {
+                        System.out.println("Shape at index " + i + ": " + data[i-1].height);
+                        }
+                        else if (i % 1000 == 0 || i == size - 1){
+                        System.out.println("Shape at index " + i + ": " + data[i].calcBaseArea());
+                        }
+                
+                    }
                     for (int j = i-1; j>= 0; j--)
                     {
                         if (compare(data[index],data[j]) > 0)
@@ -166,34 +206,7 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                         index = j;
                     }
                     //print out every 1000th value processed
-                    if(comparetype == "a"){
-                    if (i == 1) {
-                    System.out.println("Shape at index " + i + ": " + data[i-1].calcBaseArea());
-                    }
                     
-                    else if (i % 1000 == 0 || i == size - 1){
-                    System.out.println("Shape at index " + i + ": " + data[i].calcBaseArea());
-                    }                    
-                
-                    }
-                    else if (comparetype == "v"){
-                    if (i == 1) {
-                    System.out.println("Shape at index " + i + ": " + data[i-1].calcVolume());
-                    }
-                    else if (i % 1000 == 0 || i == size - 1){
-                    System.out.println("Shape at index " + i + ": " + data[i].calcBaseArea());
-                    }
-                
-                    }
-                    else {
-                        if (i == 1) {
-                    System.out.println("Shape at index " + i + ": " + data[i-1].height);
-                    }
-                    else if (i % 1000 == 0 || i == size - 1){
-                    System.out.println("Shape at index " + i + ": " + data[i].calcBaseArea());
-                    }
-                
-                    }
                 }
                 
             }
@@ -209,13 +222,13 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                 {
                     E min = data[i];
                    int minindex = i;
-                   if(comparetype == "a"){
+                   if("a".equals(comparetype)){
                     if (i == 0 || i % 1000 == 0 || i == size - 1) {
                     System.out.println("Shape at index " + i + ": " + data[i].calcBaseArea());
                     }
                 
                     }
-                    else if (comparetype == "v"){
+                    else if ("v".equals(comparetype)){
                     if (i == 0 || i % 1000 == 0 || i == size - 1) {
                     System.out.println("Shape at index " + i + ": " + data[i].calcVolume());
                     }

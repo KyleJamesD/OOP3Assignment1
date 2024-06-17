@@ -31,14 +31,14 @@ public class SquarePrism extends Shape
     
     
     public Double calcBaseArea(){
-        double area1 = side * side;
+        Double area1 = side * side;
         return area1;
     
     }
     
     public Double calcVolume(){
     
-        double volume1 = side * side * height;
+        Double volume1 = side * side * height;
         return volume1;
     
     }

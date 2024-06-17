@@ -30,12 +30,12 @@ public class TriangularPrism extends Shape
     
     
     public Double calcBaseArea(){
-        double area1 = (side * side * (Math.sqrt(3)))/4.0;
+        Double area1 = (side * side * (Math.sqrt(3)))/4.0;
         return area1;
     }
     
     public Double calcVolume(){
-        double volume1 = calcBaseArea() * height;
+        Double volume1 = calcBaseArea() * height;
         return volume1;
     
     }
