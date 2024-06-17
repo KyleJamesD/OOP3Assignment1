@@ -7,7 +7,7 @@ import shapes.Cylinder;
 import shapes.OctagonalPrism;
 import shapes.PentagonalPrism;
 import shapes.Pyramid;
-import shapes.ShapeComparator;
+import utilities.ShapeComparator;
 import shapes.SquarePrism;
 import shapes.TriangularPrism;
 import java.io.BufferedReader;
@@ -41,18 +41,11 @@ public class AppDriver
             
             //  **************begin command line code ***************************** 
             
-            String filepath = "C:\\Users\\kyled\\Desktop\\Github\\JavaProjects\\OOP3Assignment1\\res\\shapes2.txt";
-            String comparetype = "h";
-            String sortalgo = "q";
+            String filepath = null;
+            String comparetype = null;
+            String sortalgo = null;
             
-            
-            String arg0 = args[0];
-            String arg1 = args[1];
-            String arg2 = args[2];
-            
-            System.out.println(arg0);
-            System.out.println(arg1);
-            System.out.println(arg2);
+             
             
             
            for (int i = 0; i < args.length; i++) 
@@ -71,32 +64,21 @@ public class AppDriver
             }
             
            }
+           if (filepath == null){
+           System.out.println("File path must be inputed with -f.");
+           return;
            
-            
-           // ArrayList<String> argsList = new ArrayList<>();
-            //argsList.add(arg0);
-           // argsList.add(arg1);
-           // argsList.add(arg2);
-            
-            
-            /*
-            for(int i = 0; i < argsList.size(); i++){
-            switch(argsList.get(i).substring(0,2).toLowerCase()){
-            
-                case "-f":
-                 filepath = argsList.get(i).substring(2);
-                 break;
-                 
-                 case "-t":
-                 comparetype = argsList.get(i).substring(2);
-                 break;
-                 
-                 case "-s":
-                 sortalgo = argsList.get(i).substring(2);
-                 break;
-                }
-            }
-            */
+           } 
+           if (comparetype == null){
+           System.out.println("compare type must be inputed with -t.");
+           return;
+           
+           } 
+           if (sortalgo == null){
+           System.out.println("Sort method must be inputed with -s.");
+           return; 
+           }
+                       
 
             
             System.out.println("File Path:"+ filepath);
@@ -118,76 +100,12 @@ public class AppDriver
             long time1 = stop - start;
             System.out.println("Time taken: " + time1 + " milliseconds");
             
+            for(int i=0; i<firstcompare.size; i++){
+                System.out.println(firstcompare.data[i].calcBaseArea());
             
-                
-                
-                
-          
-                      
-            
-            
-            
-           /*
-            for(int i = 0; i < args.length; i++){
-            switch(args[i].toLowerCase()){
-            
-                case "-f":
-                 filepath = args[i].substring(2);
-                 break;
-                 
-                 case "-t":
-                 comparetype = args[i].substring(2);
-                 break;
-                 
-                 case "-s":
-                 sortalgo = args[i].substring(2);
-                 break;
-                }
             }
-           */
-           
-           /*
-           for (String arg : args ){
-           switch (arg.substring(0,2).toLowerCase()){
-                case "-f":
-                 filepath = args[0].substring(2);
-                 break;
-                 
-                 case "-t":
-                 comparetype = args[0].substring(2);
-                 break;
-                 
-                 case "-s":
-                 sortalgo = args[0].substring(2);
-                 break;
-                }
-            }
-             
-           */
             
             
-           
-           
-           
-           
-           
-           /*
-           if (filepath == null){
-           System.out.println("File path must be inputed with -f option.");
-           return;
-           
-           } 
-           if (comparetype == null){
-           System.out.println("compare type must be inputed with -t option.");
-           return;
-           
-           } 
-           if (sortalgo == null){
-           System.out.println("Sort method must be inputed with -s followed by one of the characters \' b,i,s,m,q \'.");
-           return; 
-           } 
-           */
-           
            //end of main
         }
         
@@ -196,28 +114,22 @@ public class AppDriver
         
         //parse file path into an array of type shape.
             public static Shape [] parseFile(String filepath){
-            Shape[] shapes ;
-            //trys to read file ifnot diplayes file is empty
+            Shape[] shapes;
             try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
             String line = br.readLine();
             if (line == null) {
             System.out.println("Empty file.");
             return null;
             }
-            
             int numShapes = Integer.parseInt(line.trim());
             shapes = new Shape[numShapes];
             int index = 0;
             
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(" ");
-                if (parts.length < 3) {
-                    System.out.println("Invalid line: " + line);
-                    continue;
-                }
                 String type = parts[0];
-                Double param1 = Double.parseDouble(parts[1]);
-                Double param2 = Double.parseDouble(parts[2]);
+                Double param1 = Double.valueOf(parts[1]);
+                Double param2 = Double.valueOf(parts[2]);
                 Shape shape = null;
             switch (type.toLowerCase()) {
                     case "cylinder":
@@ -241,9 +153,6 @@ public class AppDriver
                     case "squareprism":
                         shape = new SquarePrism(param1, param2);
                         break;
-                    default:
-                        System.out.println("Unknown shape type: " + type);
-                        continue;
                 }
                 shapes[index++] = shape;
             }

@@ -14,7 +14,7 @@ import java.util.Comparator;
     public abstract class Shape implements Comparable<Shape>
     {
     
-      Double height;
+      public Double height;
       public abstract Double calcVolume();
       public abstract Double calcBaseArea();
 
