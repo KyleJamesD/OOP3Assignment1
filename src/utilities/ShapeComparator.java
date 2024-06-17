@@ -118,28 +118,7 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                 {
                     //print out every 1000th value processed
                     //if(comparetype == "a")
-                    if("a".equals(comparetype))
-                    {
-                        if (j == 0 || j % 1000 == 0 || j == size - 1) {
-                        System.out.println("Shape at index " + j + ": " + data[j].calcBaseArea());
-                        }
-                
-                    }
-                    
-                    else if ("v".equals(comparetype))
-                    {
-                        if (j == 0 || j % 1000 == 0 || j == size - 1) {
-                        System.out.println("Shape at index " + j + ": " + data[j].calcVolume());
-                        }
-                
-                    }
-                    else 
-                    {
-                        if (j == 0 || j % 1000 == 0 || j == size - 1) {
-                        System.out.println("Shape at index " + j + ": " + data[j].height);
-                        }
-                
-                    }
+                   
                     
                     for (int y=1; y < size; y++)
                     {
@@ -162,39 +141,6 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                 for(int i=1; i<size; i++)
                 {
                         int index = i;
-                    if( "a".equals(comparetype))
-                    {
-                        if (i == 1) {
-                        System.out.println("Shape at index " + i + ": " + data[i-1].calcBaseArea());
-                        }
-
-                        else if (i % 1000 == 0 || i == size - 1){
-                        System.out.println("Shape at index " + i + ": " + data[i].calcBaseArea());
-                        }                    
-                
-                    }
-                    
-                    
-                    if ("v".equals(comparetype))
-                    {
-                        if (i == 1) {
-                        System.out.println("Shape at index " + i + ": " + data[i-1].calcVolume());
-                        }
-                        else if (i % 1000 == 0 || i == size - 1){
-                        System.out.println("Shape at index " + i + ": " + data[i].calcBaseArea());
-                        }
-                
-                    }
-                    
-                    else {
-                        if (i == 1) {
-                        System.out.println("Shape at index " + i + ": " + data[i-1].height);
-                        }
-                        else if (i % 1000 == 0 || i == size - 1){
-                        System.out.println("Shape at index " + i + ": " + data[i].calcBaseArea());
-                        }
-                
-                    }
                     for (int j = i-1; j>= 0; j--)
                     {
                         if (compare(data[index],data[j]) > 0)
@@ -222,24 +168,6 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                 {
                     E min = data[i];
                    int minindex = i;
-                   if("a".equals(comparetype)){
-                    if (i == 0 || i % 1000 == 0 || i == size - 1) {
-                    System.out.println("Shape at index " + i + ": " + data[i].calcBaseArea());
-                    }
-                
-                    }
-                    else if ("v".equals(comparetype)){
-                    if (i == 0 || i % 1000 == 0 || i == size - 1) {
-                    System.out.println("Shape at index " + i + ": " + data[i].calcVolume());
-                    }
-                
-                    }
-                    else {
-                        if (i == 0 || i % 1000 == 0 || i == size - 1) {
-                    System.out.println("Shape at index " + i + ": " + data[i].height);
-                    }
-                
-                    }
                     
                     for (int j = i+1; j<size; j++)
                     {    
