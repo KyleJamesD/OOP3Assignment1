@@ -114,19 +114,19 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
   
             public void bubbleSort(E[] data)
             {
-                for (int j=0; j < size; j++)
+                for (int j=0; j < size-1; j++)
                 {
                     //print out every 1000th value processed
                     //if(comparetype == "a")
                    
                     
-                    for (int y=1; y < size; y++)
+                    for (int y=0; y < size-1; y++)
                     {
-                        if (compare(data[y], data[y-1]) > 0)
+                        if (compare(data[y], data[y+1]) < 0)
                         {
                            E x = data[y];
-                           data[y] = data[y-1];
-                           data[y-1] = x;
+                           data[y] = data[y+1];
+                           data[y+1] = x;
                         }
                     }
                     
@@ -135,26 +135,18 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                 }
             }       
 
-
-            public void insertionSort(E[] data)
-            {
-                for(int i=1; i<size; i++)
-                {
-                        int index = i;
-                    for (int j = i-1; j>= 0; j--)
-                    {
-                        if (compare(data[index],data[j]) > 0)
-                        {
-                            E temp = data[index];
-                            data[index] = data[j];
-                            data[j] = temp;    
-                        }
-                        index = j;
-                    }
-                    //print out every 1000th value processed
-                    
-                }
-                
+            
+            public void insertionSort(E[] data) {  
+                int n = data.length;  
+                for (int j = 1; j < n; j++) {  
+                    E key = data[j];  
+                    int i = j-1;  
+                    while (i > -1 && compare(data[i],key) <0) {  
+                        data [i+1] = data [i];  
+                        i--;  
+                    }  
+                    data[i+1] = key;  
+                }  
             }
 
 

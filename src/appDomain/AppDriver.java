@@ -107,7 +107,7 @@ public class AppDriver
                 // run sorting algo
             
             firstcompare.ultimateCompare(sortalgo);
-            long stop = System.nanoTime();
+            long stop = System.currentTimeMillis();
             
             long time1 = stop - start;
             System.out.println("Time taken: " + time1 + " milliseconds");
