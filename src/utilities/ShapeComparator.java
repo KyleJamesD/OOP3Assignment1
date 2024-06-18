@@ -115,11 +115,7 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
             public void bubbleSort(E[] data)
             {
                 for (int j=0; j < size-1; j++)
-                {
-                    //print out every 1000th value processed
-                    //if(comparetype == "a")
-                   
-                    
+                {              
                     for (int y=0; y < size-1; y++)
                     {
                         if (compare(data[y], data[y+1]) < 0)
@@ -129,9 +125,6 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                            data[y+1] = x;
                         }
                     }
-                    
-                    
-
                 }
             }       
 
@@ -150,8 +143,6 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
             }
 
 
-        
-            // this will take some time to figure out
             
             public void selectionSort(E[] data)
             {
@@ -224,14 +215,10 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
             {
                 int leftArrayLength = leftHalf.length;
                 int rightArrayLength = rightHalf.length;
-                
                 //establish 3 int variables and set to zero. on the same line, wayyy to cool
                 int i =0 ,j =0 ,k =0;
-                
-                
                 while (i < leftArrayLength && j < rightArrayLength)
-                {
-                    
+                {  
                     //implement Compare here
                     if (compare(leftHalf[i],rightHalf[j]) >= 0)
                     {
@@ -241,11 +228,9 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                     else
                     {
                         data[k] = rightHalf[j];
-                        j++;
-                        
+                        j++;                       
                     }
-                k++;
-                                      
+                k++;                                     
                 }
                 while ( i < leftArrayLength) 
                 {
@@ -265,18 +250,13 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
             }
             
             
-            //Quick Sort
-            
-            
+            //Quick Sort           
             public void quickSort(E[] array) {
             quickSortRecursive(array, 0, array.length - 1);
             }
             
             private void quickSortRecursive(E arr[], int begin, int end) 
-            {
-                
-                
-                
+            {   
                 if (begin < end) 
                 {
                 int partitionIndex = partition(arr, begin, end);
@@ -305,9 +285,6 @@ public class ShapeComparator<E extends Shape> implements Comparator<E>
                 arr[end] = swapTemp;
 
                 return i+1;
-            }
-
-
-        
+            }     
  //end of class
 }

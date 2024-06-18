@@ -50,20 +50,22 @@ public class AppDriver
             
            for (int i = 0; i < args.length; i++) 
            {
-            if (args[i].startsWith("-f") || args[i].startsWith("-F") ) 
-            {
-                filepath = args[i].substring(2);
-            } 
-            else if (args[i].startsWith("-t") || args[i].startsWith("-T")) 
-            {
-                comparetype = args[i].substring(2).toLowerCase();
-            } 
-            else if (args[i].startsWith("-s") || args[i].startsWith("-S")) 
-            {
-                sortalgo = args[i].substring(2).toLowerCase();
-            }
+                if (args[i].startsWith("-f") || args[i].startsWith("-F") ) 
+                {
+                    filepath = args[i].substring(2);
+                } 
+                else if (args[i].startsWith("-t") || args[i].startsWith("-T")) 
+                {
+                    comparetype = args[i].substring(2).toLowerCase();
+                } 
+                else if (args[i].startsWith("-s") || args[i].startsWith("-S")) 
+                {
+                    sortalgo = args[i].substring(2).toLowerCase();
+                }
             
            }
+           
+           
            if (filepath == null){
            System.out.println("File path must be inputed with -f.");
            return;
@@ -79,42 +81,26 @@ public class AppDriver
            return; 
            }
                        
-
-            
+           
             System.out.println("File Path:"+ filepath);
             System.out.println("Compare Type:"+ comparetype);
             System.out.println("Sort Method:"+ sortalgo);
             
             //call parseFile to parse given file and create an array of specific Shape objects
             Shape shapes[] = parseFile(filepath);
-            //create new Shape comparator object 
             
+            //create new Shape comparator object            
             ShapeComparator firstcompare = new ShapeComparator(shapes,comparetype,sortalgo);
             
             //start of time 
             long start = System.currentTimeMillis();
             
-            //*********************TESTING*********************//
-            /*
-            for(int i=0; i<firstcompare.size; i++){
-                System.out.println(firstcompare.data[i].calcBaseArea());
-            
-            }
-            */
-                //*********************TESTING*********************//
-
-                     
-                // run sorting algo
-            
             firstcompare.ultimateCompare(sortalgo);
+            
             long stop = System.currentTimeMillis();
             
             long time1 = stop - start;
             System.out.println("Time taken: " + time1 + " milliseconds");
-            
-            
-            
-            
             
             
             if ("a".equals(firstcompare.comparetype)){
@@ -124,8 +110,7 @@ public class AppDriver
                     }
                 }
             }
-            
-        
+                    
             else if ("v".equals(firstcompare.comparetype)){
                 for(int i=0; i<firstcompare.size; i++){
                     if (i==0 || i % 1000 == 0 || i == firstcompare.size - 1){
@@ -143,21 +128,7 @@ public class AppDriver
                 }
                     
             }
-           
             
-            /*
-            for(int i=0; i<firstcompare.size; i++){
-                System.out.println(firstcompare.data[i].calcBaseArea());
-            
-            }
-            
-            for(int i=0; i<firstcompare.size; i++){
-                    if (i==0 || i % 1000 == 0 || i == firstcompare.size - 1){
-                    System.out.println("Shape at index " + i + ": " + firstcompare.data[i].calcBaseArea());
-                    }
-            }
-
-*/
            //end of main
         }
         
@@ -173,6 +144,8 @@ public class AppDriver
             System.out.println("Empty file.");
             return null;
             }
+            //line.trim takes the first line and trims it from the filepath? or just the file but anyways it will not be processed by the while loop, not sure but it takes its value
+            //and stores it into numShapes, then it assigns the length of the array shapes and gives it a type of shapes.
             int numShapes = Integer.parseInt(line.trim());
             shapes = new Shape[numShapes];
             int index = 0;
@@ -208,23 +181,15 @@ public class AppDriver
                 }
                 shapes[index++] = shape;
             }
-
             if (index != numShapes) {
                 System.out.println("Warning: Number of shapes in file does not match the specified count.");
             }
-
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
-
         return shapes;
     }
-           
-            
-            
-            
-            
-            
+               
 //end of class
 }
