@@ -45,14 +45,15 @@ public class AppDriver
 			}
 			// prefix: -t for comparator, -s for sort, -f for file
 			String prefix = arg.substring(0, 2);
+			String lowerCase = arg.substring(prefix.length()).toLowerCase();
 			if (prefix.equalsIgnoreCase(PREFIX_COMPARE)) {
-				parsedArgs[0] = arg.substring(prefix.length());
+				parsedArgs[0] = lowerCase;
 			}
 			if (prefix.equalsIgnoreCase(PREFIX_SORT)) {
-				parsedArgs[1] = arg.substring(prefix.length());
+				parsedArgs[1] = lowerCase;
 			}
 			if (prefix.equalsIgnoreCase(PREFIX_FILE)){
-				parsedArgs[2] = arg.substring(prefix.length());
+				parsedArgs[2] = lowerCase;
 			}
 		}
 		if (parsedArgs[0] == null || parsedArgs[1] == null || parsedArgs[2] == null) {
