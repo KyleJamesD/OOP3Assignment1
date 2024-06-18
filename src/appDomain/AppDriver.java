@@ -68,10 +68,10 @@ public class AppDriver
 		}
 		int index = 0;
 		while (true) {
-			System.out.println(index + ":" + data[index].toString());
+			System.out.println("Shape at " + index + ": " + data[index].toString());
 			index += 1000;
 			if (index >= data.length -1 ) {
-				System.out.println(data.length -1 + ":" + data[data.length - 1].toString());
+				System.out.println("Shape at " + (data.length -1)+ ": " + data[data.length - 1].toString());
 				break;
 			}
 		}

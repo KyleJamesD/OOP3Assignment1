@@ -9,10 +9,10 @@ public class OctagonalPrism extends Prism {
     }
 
     public double calcBaseArea() {
-        return Math.round(2 * (1 + Math.sqrt(2)) * this.side * this.side);
+        return 2 * (1 + Math.sqrt(2)) * this.side * this.side;
     }
 
     public double calcVolume() {
-        return Math.round(this.calcBaseArea() * this.height);
+        return this.calcBaseArea() * this.height;
     }
 }

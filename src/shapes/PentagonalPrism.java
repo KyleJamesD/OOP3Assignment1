@@ -13,11 +13,11 @@ public class PentagonalPrism extends Prism {
 
     public double calcBaseArea() {
         double radians = toRadians(54);
-        return Math.round((5 * (this.side * this.side) * tan(radians)) / 4);
+        return (5 * (this.side * this.side) * tan(radians)) / 4;
     }
 
     public double calcVolume() {
-        return Math.round(this.calcBaseArea() * this.height);
+        return this.calcBaseArea() * this.height;
     }
 
 }
