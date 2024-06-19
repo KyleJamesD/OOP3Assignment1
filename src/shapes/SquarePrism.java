@@ -1,47 +1,19 @@
 package shapes;
 
-public class SquarePrism extends Shape
+public class SquarePrism extends Prism
 {
-    Double height;
-    Double side;
-    Double area;
-    Double volume;
-
-    
     //constructor
-    public SquarePrism(Double height, Double side) {
+    public SquarePrism(double height, double side) {
         this.height = height;
         this.side = side;
-        this.area = calcBaseArea();
-        this.volume = calcVolume();
-    }
-
-    public Double getHeight() {
-        return height;
-    }
-
-    public Double getArea() {
-        return area;
-    }
-
-    public Double getVolume() {
-        return volume;
     }
     
-    
-    
-    
-    public Double calcBaseArea(){
-        double area1 = side * side;
-        return area1;
-    
+    public double calcBaseArea(){
+        return this.side * this.side;
     }
     
-    public Double calcVolume(){
-    
-        double volume1 = side * side * height;
-        return volume1;
-    
+    public double calcVolume(){
+        return this.calcBaseArea() * this.height;
     }
     
 //end class
