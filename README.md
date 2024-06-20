@@ -2,7 +2,7 @@
 
 # ShapeComparator
 
-This program organizes  a collection of shapes from largest to smallest based upon one of the three defining attributes:
+This program organizes a collection of shapes from largest to smallest based upon one of the three defining attributes:
 height, area or volume. It includes 6 different sorting methods able to achieve this task, allowing the user to select the desired algoritm at run time one. The program also displays to the console the time it takes to sort the Shapes and the first last and every 1000th shape that is sorted.
 The program is capable of sorting the following shapes with their appropraite attributes.
 
@@ -51,23 +51,11 @@ path will be required to the text files you wish to sort.
 
 * Please note the Shapes1.txt or Shapes2.txt or Shapes3.txt MUST be in the same folder in order for the file path -f"res/shapes2".txt to work! 
 
-
-### Complexity Analysis of Algorithm X
-
-* 
-* 
-* 
-* 
-1. 
-2. 
-3. 
-4. 
-
 ## Authors
 * Kyle Dyck 
-* 
-* 
-* 
+* Yi-Chen Lin
+* Xuekun Wei
+* Siu Kee Hui
 
 ## Version History
 
@@ -75,9 +63,3 @@ path will be required to the text files you wish to sort.
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
