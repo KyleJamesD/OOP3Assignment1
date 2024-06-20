@@ -2,7 +2,6 @@ package utilities.algorithm;
 
 import shapes.Shape;
 
-import java.util.Arrays;
 import java.util.Comparator;
 
 public class SelectionSort extends SortAlgorithm<Shape> {
@@ -19,9 +18,7 @@ public class SelectionSort extends SortAlgorithm<Shape> {
                 }
             }
             if (maxIndex != i) {
-                Shape temp = data[i];
-                data[i] = data[maxIndex];
-                data[maxIndex] = temp;
+                swap(data, i, maxIndex);
             }
         }
     }

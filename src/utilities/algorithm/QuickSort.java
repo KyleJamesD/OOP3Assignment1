@@ -44,11 +44,6 @@ public class QuickSort extends SortAlgorithm<Shape> {
         return left;
     }
 
-    private void swap(Shape[] nums, int i, int j) {
-        Shape temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
-    }
 
     private int medianOfThree(Shape[] data, int left, int right) {
         int mid = (left + right) / 2;

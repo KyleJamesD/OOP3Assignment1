@@ -18,9 +18,7 @@ public class BubbleSort extends SortAlgorithm<Shape> {
             boolean swapped = false;
             for (int j = 0; j < i; j++) {
                 if (this.comparator.compare(data[j], data[j + 1]) > 0) {
-                    Shape temp = data[j];
-                    data[j] = data[j + 1];
-                    data[j + 1] = temp;
+                    swap(data, j, j + 1);
                     swapped = true;
                 }
             }
