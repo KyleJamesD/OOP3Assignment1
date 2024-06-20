@@ -1,9 +1,6 @@
 package appDomain;
 import shapes.*;
-import utilities.BubbleSort;
-import utilities.InsertionSort;
-import utilities.SelectSort;
-import utilities.SortUtils;
+import utilities.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -72,7 +69,7 @@ public class AppDriver
                     return null;
                 }
                 if ( params[0].startsWith("\"")){
-                    params[0] = params[0].substring(1).replace("\"", "");;
+                    params[0] = params[0].substring(1).replace("\"", "");
                 }
                 System.out.println( "Filename: " + params[0]);
             }
@@ -87,7 +84,7 @@ public class AppDriver
             else if ( args[i].startsWith("-s") || args[i].startsWith("-S") ){
                 params[2] = args[i].substring(2);
                 if ( !params[2].equalsIgnoreCase("b") && !params[2].equalsIgnoreCase("s") && !params[2].equalsIgnoreCase("i")
-                        && !params[2].equalsIgnoreCase("m") && !params[2].equalsIgnoreCase("q") && !params[2].equalsIgnoreCase("z") ){
+                        && !params[2].equalsIgnoreCase("m") && !params[2].equalsIgnoreCase("q") && !params[2].equalsIgnoreCase("h") ){
                     System.out.println( "Invalid Sort: " + params[2] );
                     return null;
                 }
@@ -172,18 +169,22 @@ public class AppDriver
     }
 
     private static void sortArray(Shape[] shapes, String sort_method, Comparator<Shape> comparator){
+
         //-s<b/s/i/m/q/z>
         switch ( sort_method.toLowerCase() ){
             case "b":
                 BubbleSort<Shape> bubble = new BubbleSort<>();
-                bubble.bubbleSort(shapes, comparator);
+                bubble.sort(shapes, comparator);
             case "s":
                 SelectSort<Shape> select = new SelectSort<>();
-                select.selectSort(shapes, comparator);
+                select.sort(shapes, comparator);
             case "i":
             default:
                 InsertionSort<Shape> insert = new InsertionSort<>();
-                insert.insertionSort(shapes, comparator);
+                insert.sort(shapes, comparator);
+            case "h":
+                HeapSort<Shape> heap = new HeapSort<>();
+                heap.sort(shapes, comparator);
         }
     }
 

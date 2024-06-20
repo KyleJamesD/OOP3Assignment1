@@ -1,6 +1,10 @@
 package utilities;
 
-public class SortUtils {
+import java.util.Comparator;
+
+public abstract class SortUtils<T> {
+
+    public abstract void sort(T[] array, Comparator<T> comparator);
 
     public static <T> void swap(T[] array, Integer index1, Integer index2){
         T temp = array[index1];
